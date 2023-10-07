@@ -1,4 +1,4 @@
-# Digital Store Project [in Working]
+# Digital Store Project [Developing]
 
 This is an e-commerce project, developed on Digital College Fortaleza, monitored by Gleidson Teixeira, a Sênior Developer.
 ##

@@ -232,3 +232,20 @@ header nav a.active{
         display: none;
     }
 }
+
+header .acoes h3{
+    font-size: 16px;
+    text-align: right;
+}
+
+header .acoes h3 span{
+    display: block;
+    font-size: 14px;
+    color: #777777;
+    transition-duration: 200ms;
+    cursor: pointer;
+}
+
+header .acoes h3 span:hover{
+    color: var(--pink)
+}
