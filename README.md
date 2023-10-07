@@ -1,5 +1,7 @@
-# React + Vite
+# Digital Store Project [in Working]
 
+This is an e-commerce project, developed on Digital College Fortaleza, monitored by Gleidson Teixeira, a Sênior Developer.
+##
 This template provides a minimal setup to get React working in Vite with HMR and some ESLint rules.
 
 Currently, two official plugins are available:

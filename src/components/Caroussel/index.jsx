@@ -31,34 +31,6 @@ const Caroussel = () => {
             buttonText: 'Ver Ofertas',
             imagem: tenis3
         },
-        {
-            suptitle: 'Melhores ofertas personalizadas',
-            title: 'O mais melhor de todos',
-            description: 'Consequat culpa exercitation mollit nisi excepteur do do tempor laboris eiusmod irure consectetur.',
-            buttonText: 'Ver Ofertas',
-            imagem: tenis3
-        },
-        {
-            suptitle: 'Melhores ofertas personalizadas',
-            title: 'O mais melhor de todos',
-            description: 'Consequat culpa exercitation mollit nisi excepteur do do tempor laboris eiusmod irure consectetur.',
-            buttonText: 'Ver Ofertas',
-            imagem: tenis3
-        },
-        {
-            suptitle: 'Melhores ofertas personalizadas',
-            title: 'O mais melhor de todos',
-            description: 'Consequat culpa exercitation mollit nisi excepteur do do tempor laboris eiusmod irure consectetur.',
-            buttonText: 'Ver Ofertas',
-            imagem: tenis3
-        },
-        {
-            suptitle: 'Melhores ofertas personalizadas',
-            title: 'O mais melhor de todos',
-            description: 'Consequat culpa exercitation mollit nisi excepteur do do tempor laboris eiusmod irure consectetur.',
-            buttonText: 'Ver Ofertas',
-            imagem: tenis3
-        },
     ];
 
     return (
