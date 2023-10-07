@@ -12,21 +12,21 @@ const Caroussel = () => {
     const banners = [
         {
             suptitle: 'Melhores ofertas personalizadas',
-            title: 'Queima de estoque Nike',
+            title: 'Queima de Estoque Nike 🔥',
             description: 'Consequat culpa exercitation mollit nisi excepteur do do tempor laboris eiusmod irure consectetur.',
             buttonText: 'Ver Ofertas',
             imagem: tenis1
         },
         {
             suptitle: 'Melhores ofertas personalizadas',
-            title: 'Leve o seu agora',
+            title: 'O melhor de todos 🙅‍♂️',
             description: 'Consequat culpa exercitation mollit nisi excepteur do do tempor laboris eiusmod irure consectetur.',
             buttonText: 'Ver Ofertas',
             imagem: tenis2
         },
         {
             suptitle: 'Melhores ofertas personalizadas',
-            title: 'O mais melhor de todos',
+            title: 'Garanta o seu agora 😍',
             description: 'Consequat culpa exercitation mollit nisi excepteur do do tempor laboris eiusmod irure consectetur.',
             buttonText: 'Ver Ofertas',
             imagem: tenis3
@@ -120,10 +120,11 @@ const CarousselSupTitle = styled.h6`
 
 const CarousselTitle = styled.h2`
     font-weight: 800;
-    font-size: 64px;
+    font-size: 60px;
     line-height: 66px;
     letter-spacing: 1px;
     color: var(--dark-gray);
+    margin-top: 20px;
     margin: 20px 0;
 `;
 
@@ -160,7 +161,7 @@ const CarousselImage = styled.img`
 
 const CarousselPagination = styled.div`
     display: flex;
-    gap: 16px;
+    gap: 10px;
     position: absolute;
     bottom: 30px;
     left: 50%;
@@ -168,8 +169,8 @@ const CarousselPagination = styled.div`
 `;
 
 const CarousselPaginationPill = styled.div`
-    width: 16px;
-    height: 16px;
+    width: 12px;
+    height: 12px;
     border-radius: 50%;
     background-color: var(--light-gray-2);
     transition-duration: 200ms;
