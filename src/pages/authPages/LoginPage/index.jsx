@@ -10,25 +10,25 @@ const LoginPage = () => {
     const [showPassword, setShowPassword] = useState(false);
     const { register, handleSubmit, setValue, reset, formState: {erros} } = useForm();
 
-    function login(data){
-        // fetch('url',{
-        //     meethod: 'POST',
-        //     headers: {
-        //         'Content-type': 'application/json',
-        //     },
-        //     body: JSON.stringify(data)
-        // })
+    // function login(data){
+    //     // fetch('url',{
+    //     //     meethod: 'POST',
+    //     //     headers: {
+    //     //         'Content-type': 'application/json',
+    //     //     },
+    //     //     body: JSON.stringify(data)
+    //     // })
         
-        console.log(data);
-    }
+    //     console.log(data);
+    // }
 
-    function setarDados(){
-        setValue('email', 'vitor@gmail.com');
-        setValue('senha', 123456);
-        setTimeout(() => {
-            reset();
-        }, 2000);
-    }
+    // function setarDados(){
+    //     setValue('email', 'vitor@gmail.com');
+    //     setValue('senha', 123456);
+    //     setTimeout(() => {
+    //         reset();
+    //     }, 2000);
+    // }
 
     return(
         <>
