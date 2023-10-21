@@ -8,9 +8,10 @@ import { useForm } from "react-hook-form";
 const LoginPage = () => {
 
     const [showPassword, setShowPassword] = useState(false);
-    const { register, handleSubmit, setValue, reset, formState: {erros} } = useForm();
+    const { register, handleSubmit, setValue, reset, formState: { erros } } = useForm();
+    const { register: registerEdit, handleSubmit: handleSubmitEdit, setValue: setValueEdit, reset: resetEdit } = useForm();
 
-    // function login(data){
+    function login(data){
     //     // fetch('url',{
     //     //     meethod: 'POST',
     //     //     headers: {
@@ -19,44 +20,46 @@ const LoginPage = () => {
     //     //     body: JSON.stringify(data)
     //     // })
         
-    //     console.log(data);
-    // }
+        console.log(data);
+    }
 
-    // function setarDados(){
-    //     setValue('email', 'vitor@gmail.com');
-    //     setValue('senha', 123456);
-    //     setTimeout(() => {
-    //         reset();
-    //     }, 2000);
-    // }
+    function setarDados(){
+        setValue('email', 'vitor@gmail.com');
+        setValue('senha', 123456);
+        setTimeout(() => {
+            reset();
+        }, 2000);
+    }
 
     return(
         <>
             <LoginContainer>
                 <LoginForm autoComplete="off" onSubmit={handleSubmit(login)}>
                     <h3>Acesse sua conta</h3>
-                    <p>Novo cliente? Então <Link to={'/auth/register'}>clique aqui</Link></p>
+                    <p>Novo cliente? Então registre-se <Link onClick={setarDados}>aqui</Link></p>
                     <div className="input-field">
-                        <input 
-                        type="text" 
-                        id="email" 
-                        placeholder="Insira seu usuário ou email" 
-                        autoComplete="off" 
-                        {...register('email', { required: true})} 
-                        required/>
-                        <label htmlFor="email">Login *</label>
+                        <input
+                            type="text"
+                            id="email"
+                            placeholder="Digite seu email"
+                            autoComplete="off"
+                            {...register('email', { required: true })}
+                            required
+                        />
+                        <label htmlFor="email">Login *{errors.email?.type === 'required' && '(Este campo é obrigatório)'}</label>
                     </div>
                     <div className="input-field">
-                        <input 
-                        type={showPassword ? "text" : "password" } 
-                        id="senha" 
-                        placeholder="Insira sua senha"
-                        autoComplete="new-password" 
-                        {...register('senha', { required: true})}
-                        required />
+                        <input
+                            type={showPassword ? "text" : "password"}
+                            id="senha"
+                            placeholder="******"
+                            autoComplete="new-password"
+                            {...register('senha', { required: true })}
+                            required
+                        />
                         <label htmlFor="senha">Senha *</label>
-                        <box-icon 
-                            name={showPassword ? 'show' : 'hide'}
+                        <box-icon
+                            name={ showPassword ? 'show' : 'hide'}
                             onClick={() => setShowPassword(!showPassword)}
                         ></box-icon>
                     </div>
@@ -65,7 +68,7 @@ const LoginPage = () => {
                     <div className="social-login">
                         Ou faça login com
                         <box-icon type='logo' name='gmail'></box-icon>
-                        <box-icon type='logo' name='facebook-circle'>   </box-icon>
+                        <box-icon type='logo' name='facebook-circle'></box-icon>
                     </div>
                 </LoginForm>
                 <LoginBG />
