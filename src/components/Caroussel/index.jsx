@@ -11,6 +11,8 @@ const Caroussel = () => {
     const [banners, setBanners] = useState([]);
     const [isLoading, setIsLoading] = useState (true);
 
+    // const { data: productsData } = useProducts();
+
     const changeImage = (image) => {
         switch(image){
             case "tenis1":
@@ -22,22 +24,39 @@ const Caroussel = () => {
         }
     }
 
-    function buscarBanners(){
-        fetch('http://localhost:3000/banners')
-        .then(response => response.json())
-        .then(data => {
-            setBanners(data);
-        })
-        .catch(e => {
-            console.log(e.message);
-        })
-        .finally(() => {
+    async function buscarBanners(){
+        // fetch('http://localhost:3000/banners')
+        // .then(response => response.json())
+        // .then(data => {
+        //     setBanners(data);
+        // })
+        // .catch(e => {
+        //     console.log(e.message);
+        // })
+        // .finally(() => {
+        //     setIsLoading(false);
+        // })
+
+        try {
+            const response = await fetch('http://localhost:3000/banners');
+            const data = await response.json();
+            setBanners(data)
             setIsLoading(false);
-        })
+        } catch (error) {
+            switch(error.message){
+                case `Failed to fetch`:
+                    return alert ('Erro: Não conectado ao servidor');
+                default:
+                    return alert('Falha ao carregar banners, avise o suporte.');
+            }
+            console.log(`Erro: ${error.message}`);
+        }
+
     }
 
     useEffect(() => {
         buscarBanners();
+        // console.log(productsData);
     }, []);
 
     return (
