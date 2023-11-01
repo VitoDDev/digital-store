@@ -6,7 +6,7 @@ import tenis3 from './assets/Tenis3.png';
 import { useEffect, useState } from "react";
 
 const Caroussel = () => {
-
+ 
     const [itemAtivo, setItemAtivo] = useState(0);
     const [banners, setBanners] = useState([]);
     const [isLoading, setIsLoading] = useState (true);
