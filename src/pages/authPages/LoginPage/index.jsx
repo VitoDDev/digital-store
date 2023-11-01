@@ -8,8 +8,9 @@ import { useForm } from "react-hook-form";
 const LoginPage = () => {
 
     const [showPassword, setShowPassword] = useState(false);
-    const { register, handleSubmit, setValue, reset, formState: { erros } } = useForm();
-    const { register: registerEdit, handleSubmit: handleSubmitEdit, setValue: setValueEdit, reset: resetEdit } = useForm();
+    const { register, handleSubmit, setValue, reset, formState: { errors } } = useForm();
+    const { register: registerEdit, handleSubmit: handleSubmitEdit, setValue: setValueEdit, reset: resetEdit} = useForm();
+
 
     function login(data){
     //     // fetch('url',{

@@ -3,15 +3,18 @@ import styled from "styled-components";
 import tenis1 from './assets/Tenis1.png';
 import tenis2 from './assets/Tenis2.png';
 import tenis3 from './assets/Tenis3.png';
-import { useEffect, useState } from "react";
+import React, { useEffect, useState } from "react";
+
 
 const Caroussel = () => {
  
     const [itemAtivo, setItemAtivo] = useState(0);
     const [banners, setBanners] = useState([]);
-    const [isLoading, setIsLoading] = useState (true);
+    const [produtos, setProdutos] = useState([]);
+    const [isLoading, setIsLoading] = useState(true);
 
     // const { data: productsData } = useProducts();
+    // setProdutos(productsData);
 
     const changeImage = (image) => {
         switch(image){
@@ -20,6 +23,8 @@ const Caroussel = () => {
             case "tenis2":
                 return tenis2
             case "tenis3":
+                return tenis3
+            default:
                 return tenis3
         }
     }
@@ -40,23 +45,22 @@ const Caroussel = () => {
         try {
             const response = await fetch('http://localhost:3000/banners');
             const data = await response.json();
-            setBanners(data)
+            setBanners(data);
             setIsLoading(false);
         } catch (error) {
             switch(error.message){
-                case `Failed to fetch`:
-                    return alert ('Erro: Não conectado ao servidor');
-                default:
-                    return alert('Falha ao carregar banners, avise o suporte.');
+                case 'Failed to fetch': 
+                    return alert('Erro: Não conectou no servidor');
+                default: 
+                    return alert('Falha em carregar banners, avise o suporte');
             }
-            console.log(`Erro: ${error.message}`);
-        }
 
+        }
     }
 
     useEffect(() => {
         buscarBanners();
-        // console.log(productsData);
+        console.log(produtos);
     }, []);
 
     return (
@@ -68,38 +72,38 @@ const Caroussel = () => {
                     ) : (
                         <>
                             <CarousselItems $ativo={itemAtivo} $items={banners.length}>
-                    {
-                        banners.map((banner, index) => (
-                            <CarousselItem key={index}>
-                                <CarousselContent>
-                                    <CarousselSupTitle>
-                                        {banner.suptitle}
-                                    </CarousselSupTitle>
-                                    <CarousselTitle>
-                                        {banner.title}
-                                    </CarousselTitle>
-                                    <CarousselDescription>
-                                        {banner.description}
-                                    </CarousselDescription>
-                                    <CarousselButton>
-                                        {banner.buttonText}
-                                    </CarousselButton>
-                                </CarousselContent>
-                                <CarousselImage src={changeImage(banner.imagem)} />
-                            </CarousselItem>
-                        ))
-                    }
+                                {
+                                    banners.map((banner, index) => (
+                                        <CarousselItem key={index}>
+                                            <CarousselContent>
+                                                <CarousselSupTitle>
+                                                    {banner.suptitle}
+                                                </CarousselSupTitle>
+                                                <CarousselTitle>
+                                                    {banner.title}
+                                                </CarousselTitle>
+                                                <CarousselDescription>
+                                                    {banner.description}
+                                                </CarousselDescription>
+                                                <CarousselButton>
+                                                    {banner.buttonText}
+                                                </CarousselButton>
+                                            </CarousselContent>
+                                            <CarousselImage src={changeImage(banner.imagem)} />
+                                        </CarousselItem>
+                                    ))
+                                }
                             </CarousselItems>
                             <CarousselPagination>
-                    {
-                        banners.map((banner, index) => (
-                            <CarousselPaginationPill
-                                key={index}
-                                className={ itemAtivo === index ? "active" : ""}
-                                onClick={() => setItemAtivo(index)}
-                            />
-                        ))
-                    }
+                                {
+                                    banners.map((banner, index) => (
+                                        <CarousselPaginationPill
+                                            key={index}
+                                            className={ itemAtivo === index ? "active" : ""}
+                                            onClick={() => setItemAtivo(index)}
+                                        />
+                                    ))
+                                }
                             </CarousselPagination>
                         </>
                     )
