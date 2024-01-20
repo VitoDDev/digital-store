@@ -26,7 +26,8 @@ const PageUsers = () => {
     const { 
         register: editData, 
         handleSubmit: editSubmit, 
-        reset: editReset } = useForm();
+        reset: editReset 
+    } = useForm();
     
     const { data: usuarios } = useUsers();
     const userCreate = useUserCreate();
@@ -75,9 +76,9 @@ const PageUsers = () => {
             </div>
 
             <DataTable value={usuarios} paginator rows={10} rowsPerPageOptions={[5, 10, 25, 50]}>
-                <Column field="name" header="Nome"></Column>
-                <Column field="email" header="Email"></Column>
-                <Column field="level" header="Nível" body={(rowData) => (
+                <Column field="user_name" header="Nome"></Column>
+                <Column field="user_email" header="Email"></Column>
+                <Column field="user_level" header="Nível" body={(rowData) => (
                     <div className='bg-primary border-round text-light inline-block p-1' >
                         { rowData.level === 1 ? 'Usuário' : 'Admin' }
                     </div>
@@ -120,29 +121,39 @@ const PageUsers = () => {
                         placeholder='Digite o email'
                         {...createData('email', {required: true})}
                     /> 
-                    <label htmlFor="level" className='block mb-1'>Nível</label>
-                    <Dropdown 
-                        value={levelSelected}
-                        onChange={(e) => {
-                            setLevelSelected(e.value);
-                            createValue('level', e.value);
-                        }}
-                        className='w-full'
-                        options={[
-                            {
-                                level: 'User',
-                                value: 1
-                            },
-                            {
-                                level: 'Admin',
-                                value: 2
-                            }
-                        ]}
-                        optionLabel='level'
-                        optionValue='value'
+
+                    <label htmlFor="password" className='block mb-1'>Email</label>
+                    <InputText 
+                        id='password' 
+                        type='password' 
+                        className='w-full mb-3'
+                        placeholder='*****'
+                        {...createData('password', {required: true})}
+                    /> 
+
+                    {/* // <label htmlFor="level" className='block mb-1'>Nível</label>
+                    // <Dropdown 
+                    //     value={levelSelected}
+                    //     onChange={(e) => {
+                    //         setLevelSelected(e.value);
+                    //         createValue('level', e.value);
+                    //     }}
+                    //     className='w-full'
+                    //     options={[
+                    //         {
+                    //             level: 'User',
+                    //             value: 1
+                    //         },
+                    //         {
+                    //             level: 'Admin',
+                    //             value: 2
+                    //         }
+                    //     ]}
+                    //     optionLabel='level'
+                    //     optionValue='value'
                         
                         
-                    />
+                    // /> */}
                     <Button 
                         label='Salvar'
                         type='submit'
