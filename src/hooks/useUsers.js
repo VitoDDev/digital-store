@@ -10,7 +10,8 @@ export const useUsers = () => {
 
 export const useUserCreate = () => {
     return useMutation (async (data) => {
-        return await API.post('users', data);
+        const response = await API.post('users', data);
+        return response.data;
     }, {
         onSuccess: () => {
             queryClient.invalidateQueries(['get-users']);
@@ -22,7 +23,8 @@ export const useUserCreate = () => {
 
 export const useUserDelete = () => {
     return useMutation(async (id) => {
-        return await API.delete(`users/${id}`);
+        const response = await API.delete(`users/${id}`);
+        return response.data;
     }, {
         onSuccess: () => {
             queryClient.invalidateQueries(['get-users']);
